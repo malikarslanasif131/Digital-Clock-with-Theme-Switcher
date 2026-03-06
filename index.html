@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="violet-dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Clock</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Syne:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Animated background -->
+  <div class="bg-layer">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="grid-lines"></div>
+  </div>
+
+  <!-- Settings overlay + drawer -->
+  <div class="settings-overlay" id="settings-overlay"></div>
+  <aside class="settings-panel" id="settings-panel" aria-hidden="true">
+    <div class="settings-header">
+      <span class="settings-title">⚙ Appearance</span>
+      <button class="close-btn" id="close-settings" aria-label="Close">✕</button>
+    </div>
+
+    <p class="settings-section-label">Color Theme</p>
+    <div class="theme-grid" id="theme-grid"><!-- filled by JS --></div>
+
+    <p class="settings-section-label" style="margin-top:1.5rem">Time Format</p>
+    <div class="format-toggle-row">
+      <span class="format-opt" id="fmt-12">12h</span>
+      <button class="pill-toggle" id="format-toggle" role="switch" aria-checked="false">
+        <span class="pill-knob"></span>
+      </button>
+      <span class="format-opt" id="fmt-24">24h</span>
+    </div>
+  </aside>
+
+  <!-- Clock -->
+  <main class="clock-container">
+    <p class="date-display" id="date-display">—</p>
+
+    <div class="clock-face">
+      <div class="glow-ring"></div>
+      <div class="time-display">
+        <div class="seg-cell" id="seg-hours"><span class="d">0</span><span class="d">0</span></div>
+        <span class="time-colon">:</span>
+        <div class="seg-cell" id="seg-minutes"><span class="d">0</span><span class="d">0</span></div>
+        <span class="time-colon">:</span>
+        <div class="seg-cell" id="seg-seconds"><span class="d">0</span><span class="d">0</span></div>
+      </div>
+      <span class="ampm-badge" id="ampm-badge">AM</span>
+    </div>
+
+    <p class="timezone-label" id="timezone-label">UTC+00:00</p>
+
+    <div class="control-panel">
+      <button class="ctrl-btn" id="dark-light-btn">
+        <span class="btn-icon" id="dl-icon">☀️</span>
+        <span class="btn-label" id="dl-label">Light</span>
+      </button>
+      <button class="ctrl-btn" id="format-btn">
+        <span class="btn-icon">🕐</span>
+        <span class="btn-label" id="format-label">12h</span>
+      </button>
+      <button class="ctrl-btn gear-btn" id="gear-btn">
+        <span class="btn-icon gear-icon">⚙</span>
+        <span class="btn-label">Themes</span>
+      </button>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
